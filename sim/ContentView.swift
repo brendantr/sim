@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  sim
-//
-//  Created by Brendan  Rodriguez on 5/11/24.
-//
-
 import SwiftUI
 import AVFoundation
 
@@ -15,7 +8,7 @@ struct ContentView: View {
     @State private var volume: [Float] = [0.5, 0.5]
     @State private var time: TimeInterval = 0.0
     @State private var duration: TimeInterval = 0.0
-    let musicTracks = ["track1", "track2"] // Only track1 and track2
+    let musicTracks = ["tracka1", "trackb2"] // Only track1 and track2
 
     var body: some View {
         ZStack {
@@ -52,7 +45,7 @@ struct ContentView: View {
                             
                             Slider(value: $volume[index], in: 0.0...1.0)
                                 .padding(.horizontal)
-                                .onChange(of: volume[index]) { value in
+                                .onChange(of: volume[index]) { oldVolume, newVolume in
                                     adjustVolume(trackIndex: index)
                                 }
                             
